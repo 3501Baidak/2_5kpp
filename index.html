@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Matrix Interface — КПП 2.5</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/alpinejs" defer></script>
+  <link rel="stylesheet" href="./login/login.css">
+  <link rel="stylesheet" href="./sidebar/sidebar.css">
+  <script src="./login/login.js"></script>
+  <script src="./sidebar/sidebar.js"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center p-4">
+  <div x-data="chatApp()" class="chat-container bg-white rounded-lg shadow-lg flex w-full max-w-5xl">
+    <div id="sidebar-container" class="w-1/3 border-r border-gray-200 p-4"></div>
+    <div class="chat-area p-4 flex flex-col w-2/3">
+      <div id="login-container"></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('./login/login.html')
+        .then(r => r.text())
+        .then(html => document.getElementById('login-container').innerHTML = html);
+
+      fetch('./sidebar/sidebar.html')
+        .then(r => r.text())
+        .then(html => document.getElementById('sidebar-container').innerHTML = html);
+    });
+
+    function chatApp() {
+      return {
+        username: '',
+        password: '',
+        accessToken: '',
+        userId: '',
+        roomId: '',
+        newRoomName: '',
+        newRoomId: '',
+        rooms: [],
+        error: '',
+        login,
+        createRoom,
+        fetchRoomsWithNames
+      }
+    }
+  </script>
+</body>
+</html>
