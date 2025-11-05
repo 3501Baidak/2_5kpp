@@ -1,0 +1,11 @@
+input {
+  border: 1px solid #ccc;
+  transition: border-color 0.2s;
+}
+input:focus {
+  border-color: #6366f1;
+  outline: none;
+}
+button {
+  transition: background-color 0.3s;
+}

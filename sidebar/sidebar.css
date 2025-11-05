@@ -1,0 +1,7 @@
+.room-list li.active {
+  background-color: #e0e7ff;
+  font-weight: 500;
+}
+.room-list li:hover {
+  background-color: #f1f5f9;
+}
